@@ -1,0 +1,11 @@
+Stworzenie prostego magazynu artykułów wyświetlanego w przeglądarce.
+Wymagania:
+- ASP.NET Core Web API jako backend
+- plik xml jako baza danych, możliwość wczytania już istniejącego pliku jako wstępnego stanu magazynu
+- użycie do części frontowej wysłanego templatu angulara
+- artykuł powinien posiadać nastepujące włąściwości (id, czas dodania, nazwa, opis, ilość, cena)
+- aplikacja frontowa powinna zapewnić operacje typu CRUD na artykułach
+- powinna istnieć mozliwość sortowania artykułów oraz ich wyszukiwania
+- w kodzie obowiązuje angielskie nazewnictwo
+- dodać wizualizacje API za pomocą Swaggera
+- napisać kilka testów jednostkowych bo backendu

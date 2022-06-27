@@ -1,0 +1,11 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <h3 mat-dialog-title style="line-height: 40px; font-size: 18px;">{{title}}</h3>
+    </div>
+  </div>
+</div>
+<div md-dialog-content style="padding: 10px 24px" [innerHTML]="message"></div>
+<div md-dialog-actions style="text-align: right; display: block;">
+  <button type="button" mat-raised-button mat-dialog-close color="primary">{{action}}</button>
+</div>

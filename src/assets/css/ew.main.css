@@ -1,0 +1,99 @@
+﻿@font-face {
+  font-family: "HelveticaNeue-Lgt";
+  src: url("../fonts/helvneue_light45.eot?#iefix");
+  src: url("../fonts/helvneue_light45.eot?#iefix") format("eot"),
+  url("../fonts/helvneue_light45.woff") format("woff"),
+  url("../fonts/helvneue_light45.ttf") format("truetype"),
+  url("../fonts/helvneue_light45.svg#helvneue_light45") format("svg");
+}
+
+@font-face {
+  font-family: "HelveticaNeue-MdCn";
+  src: url("../fonts/helvneue_med67.eot?#iefix");
+  src: url("../fonts/helvneue_med67.eot?#iefix") format("eot"),
+  url("../fonts/helvneue_med67.woff") format("woff"),
+  url("../fonts/helvneue_med67.ttf") format("truetype"),
+  url("../fonts/helvneue_med67.svg#helvneue_med67") format("svg");
+  font-weight: bold;
+}
+
+body { /* corresponds to #mainContentBox inside Sharepoint pages */
+  background-color: #fff;
+  font-size: 13px;
+  font-family: "HelveticaNeue-Lgt", Helvetica, Verdana, sans-serif;
+}
+
+/**
+    MDL customization 
+**/
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: normal;
+}
+
+.mdl-dialog {
+  min-width: 800px;
+  margin: 20px auto;
+}
+
+.mdl-dialog__title {
+  font-size: 1.6em;
+  display: inline;
+}
+
+.mdl-dialog__actions {
+  float: right;
+}
+
+.mdl-dialog__content {
+  max-height: 400px;
+  overflow-y: auto;
+  clear: both;
+}
+
+/**
+    Bootstrap customization 
+**/
+
+/* dropdown style to SharePoint default */
+.o365cs-rsp-off.o365cs-newAL-off.o365cs-nav-navMenu.dropdown-menu {
+  border-radius: 0;
+  padding: 0;
+  max-height: none !important;
+}
+
+/**
+    MD2 customization
+**/
+.md2-input-error {
+  display: block;
+  color: #f44336;
+  font-size: 75%;
+  position: relative;
+  bottom: 1.5em;
+}
+
+.md2-autocomplete-trigger.is-focused {
+  border-bottom-color: #af1e65 !important;
+}
+
+.md2-autocomplete-trigger.is-focused .md2-autocomplete-placeholder {
+  color: #af1e65 !important;
+}
+
+.autocomplete-top .md2-autocomplete-menu {
+  top: -12.5em !important;
+  height: 12em;
+}
+
+.mat-dialog-container {
+  min-width: 320px !important;
+}
+
+a:hover,
+a:focus {
+  text-decoration: none;
+}

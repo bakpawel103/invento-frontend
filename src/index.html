@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Flight magazine</title>
+    <base href="/" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+
+    <!-- Global CSS from flybase -->
+    <link href="./assets/css/ew.material.theme.css" rel="stylesheet" />
+    <link href="./assets/css/material-icons.css" rel="stylesheet" />
+    <link href="./assets/css/ew.main.css" rel="stylesheet" />
+
+    <!-- EW-Global-Object with informations about current user -->
+    <script type="text/javascript">
+      // Register global EW namespace containing user information
+      var EWGlobal = EWGlobal || {};
+      EWGlobal.User = EWGlobal.User || {};
+      // edit test values
+      EWGlobal.User.Account = "12345";
+      EWGlobal.User.FirstName = "Max";
+      EWGlobal.User.LastName = "Mad";
+      EWGlobal.User.DisplayName = "Mad, Max";
+      EWGlobal.User.NamePrefix = "";
+      EWGlobal.User.UserId = "012345";
+      EWGlobal.User.UserTlc = "XXX";
+      EWGlobal.User.Email = "Max.Mad@enter.com";
+      EWGlobal.User.Roles = ["Cockpit", "Developers"];
+      EWGlobal.IsDev = false;
+
+      var ew = ew || {};
+      ew.web = ew.web || {};
+      ew.web.apps = {};
+      ew.web.apps.Daily = {};
+      ew.web.apps.Daily.AirportDetailsServices = [
+        "GPU_Included",
+        "Fuel_Order_Minimum",
+      ];
+    </script>
+  </head>
+  <body>
+    <ew-app-root></ew-app-root>
+  </body>
+</html>
