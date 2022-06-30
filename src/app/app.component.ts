@@ -9,10 +9,10 @@ declare const EWGlobal: EWGlobal;
   styleUrls: ["./app.component.scss"],
 })
 export class AppComponent {
-  title = "Magazine";
+  title = "Warehouse";
   version = "0.0.1";
 
   constructor() {
-    console.log(EWGlobal);
+    console.log();
   }
 }

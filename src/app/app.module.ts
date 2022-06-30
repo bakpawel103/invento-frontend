@@ -1,25 +1,29 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { BrowserModule } from "@angular/platform-browser";
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from "@angular/core";
 
-import { AppComponent } from './app.component';
-import { StyleguideModule } from './components/styleguide-component/styleguide.module';
-import { LogService } from './services/log.service';
-import { EwCommonModule } from '../common/common.module';
+import { AppComponent } from "./app.component";
+import { StyleguideModule } from "./components/styleguide-component/styleguide.module";
+import { LogService } from "./services/log.service";
+import { EwCommonModule } from "../common/common.module";
+import { ItemsListComponent } from "./components/items/items-list/items-list.component";
+import { HttpClientModule } from "@angular/common/http";
+import { MatTableModule } from "@angular/material/table";
+import { MatSortModule } from "@angular/material/sort";
+import { MatIconModule } from "@angular/material/icon";
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent, ItemsListComponent],
   imports: [
     BrowserModule,
     EwCommonModule,
-    StyleguideModule
+    StyleguideModule,
+    HttpClientModule,
+    MatTableModule,
+    MatSortModule,
+    MatIconModule,
   ],
-  providers: [
-    LogService
-  ],
+  providers: [LogService],
   bootstrap: [AppComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class AppModule {
-}
+export class AppModule {}

@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   debugLog: true, // if false - disables all console.logs
-  aboutThisPath: '/assets/aboutthis/aboutthis.html'
+  aboutThisPath: "/assets/aboutthis/aboutthis.html",
+  apiUrl: "https://localhost:7059/api",
 };
 
 /*
