@@ -1,14 +1,14 @@
-import { HttpClient } from "@angular/common/http";
-import { Injectable } from "@angular/core";
-import { Guid } from "guid-typescript";
-import { Item, ItemDTO } from "src/models/item";
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Guid } from 'guid-typescript';
+import { Item, ItemDTO } from 'src/models/item';
 
-import { environment } from "../../../../environments/environment";
+import { environment } from '../../../../environments/environment';
 
 const baseUrl = `${environment.apiUrl}/Item`;
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class ItemsListService {
   constructor(private http: HttpClient) {}

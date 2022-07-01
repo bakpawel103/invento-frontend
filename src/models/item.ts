@@ -11,8 +11,14 @@ export class Item {
 
 export class ItemDTO {
   name: string;
-  createDate: Date;
   description: string;
   quantity: number;
   price: number;
+
+  constructor(item: Item) {
+    this.name = item.name;
+    this.description = item.description;
+    this.quantity = item.quantity;
+    this.price = item.price;
+  }
 }

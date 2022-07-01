@@ -17,9 +17,15 @@ export class AddItemDialogComponent {
   constructor(
     public dialogRef: MatDialogRef<AddItemDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
-  ) {}
+  ) {
+    this.item = { ...data };
+  }
 
   save() {
+    this.data.name = this.item.name;
+    this.data.description = this.item.description;
+    this.data.quantity = this.item.quantity;
+    this.data.price = this.item.price;
     this.dialogRef.close(true);
   }
 

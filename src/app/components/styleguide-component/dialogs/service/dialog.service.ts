@@ -1,12 +1,12 @@
-import { Injectable } from "@angular/core";
-import { ConfirmDialogComponent } from "../confirm-dialog/confirm-dialog.component";
-import { InfoDialogComponent } from "../info-dialog/info-dialog.component";
-import { MatDialog } from "@angular/material/dialog";
-import { environment } from "../../../../../environments/environment";
-import { DomSanitizer } from "@angular/platform-browser";
-import { MatDialogRef } from "@angular/material/dialog";
-import { EWGlobal } from "../../../../../models";
-import { AddItemDialogComponent } from "../add-item-dialog/add-item-dialog.component";
+import { Injectable } from '@angular/core';
+import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
+import { InfoDialogComponent } from '../info-dialog/info-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
+import { environment } from '../../../../../environments/environment';
+import { DomSanitizer } from '@angular/platform-browser';
+import { MatDialogRef } from '@angular/material/dialog';
+import { EWGlobal } from '../../../../../models';
+import { AddItemDialogComponent } from '../add-item-dialog/add-item-dialog.component';
 
 declare const EWGlobal: EWGlobal;
 
@@ -15,16 +15,17 @@ export class DialogService {
   constructor(protected dialog: MatDialog, private sanitizer: DomSanitizer) {}
 
   openAddItemDialog(
-    title: string = "Add item",
-    confirmButton: string = "Yes",
-    cancelButton: string = "No"
+    data: any = {},
+    title: string = 'Add item',
+    confirmButton: string = 'Yes',
+    cancelButton: string = 'No'
   ): Promise<boolean> {
     this.dialog.openDialogs.pop();
 
     const dialogRef: MatDialogRef<AddItemDialogComponent> = this.dialog.open(
       AddItemDialogComponent,
       {
-        data: {},
+        data,
         disableClose: true,
       }
     );
@@ -37,10 +38,10 @@ export class DialogService {
   }
 
   openConfirmDialog(
-    title: string = "Confirm",
-    content: string = "Do you really want to delete this item? This action can not be undone.",
-    confirmButton: string = "Yes",
-    cancelButton: string = "No"
+    title: string = 'Confirm',
+    content: string = 'Do you really want to delete this item? This action can not be undone.',
+    confirmButton: string = 'Yes',
+    cancelButton: string = 'No'
   ): Promise<boolean> {
     this.dialog.openDialogs.pop();
 
@@ -65,7 +66,7 @@ export class DialogService {
 
     const dialogRef: MatDialogRef<InfoDialogComponent> = this.dialog.open(
       InfoDialogComponent,
-      { height: "500px" }
+      { height: '500px' }
     );
 
     dialogRef.componentInstance.title = title;
@@ -80,8 +81,8 @@ export class DialogService {
     const dialogRef: MatDialogRef<InfoDialogComponent> = this.dialog.open(
       InfoDialogComponent,
       {
-        height: "300px",
-        width: "200px",
+        height: '300px',
+        width: '200px',
       }
     );
 
@@ -94,10 +95,10 @@ export class DialogService {
   openAboutThisDialog(): Promise<boolean> {
     const aboutThisPath =
       environment.aboutThisPath +
-      "?Account=" +
+      '?Account=' +
       encodeURI(EWGlobal.User.Account) +
-      "&Roles=" +
-      encodeURI(this.replaceAll(EWGlobal.User.Roles.toString(), ",", ", "));
+      '&Roles=' +
+      encodeURI(this.replaceAll(EWGlobal.User.Roles.toString(), ',', ', '));
 
     const longDesc = this.sanitizer.bypassSecurityTrustHtml(
       '<iframe width="800" height="300" src=' +
@@ -111,13 +112,13 @@ export class DialogService {
     const dialogRef: MatDialogRef<InfoDialogComponent> =
       this.dialog.open(InfoDialogComponent);
 
-    dialogRef.componentInstance.title = "About This";
+    dialogRef.componentInstance.title = 'About This';
     dialogRef.componentInstance.message = longDesc;
 
     return dialogRef.afterClosed().toPromise();
   }
 
   replaceAll(str, find, replace) {
-    return str.replace(new RegExp(find, "g"), replace);
+    return str.replace(new RegExp(find, 'g'), replace);
   }
 }

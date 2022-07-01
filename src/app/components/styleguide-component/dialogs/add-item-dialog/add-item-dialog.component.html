@@ -9,7 +9,39 @@
 <div md-dialog-content style="padding: 10px 24px">
   <div class="row">
     <div class="col-md-12">
-      <input type="text" />
+      <label for="name">Name: </label>
+    </div>
+    <div class="col-md-12">
+      <input type="text" id="name" [(ngModel)]="item.name" required />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <label for="description">Description: </label>
+    </div>
+    <div class="col-md-12">
+      <input
+        type="text"
+        id="description"
+        [(ngModel)]="item.description"
+        required
+      />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <label for="quantity">Quantity: </label>
+    </div>
+    <div class="col-md-12">
+      <input type="number" id="quantity" [(ngModel)]="item.quantity" required />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <label for="price">Price: </label>
+    </div>
+    <div class="col-md-12">
+      <input type="number" id="price" [(ngModel)]="item.price" required />
     </div>
   </div>
 </div>

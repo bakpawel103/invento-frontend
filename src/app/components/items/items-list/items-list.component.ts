@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
-import { Item } from "src/models/item";
+import { Item, ItemDTO } from "src/models/item";
 import { ItemsListService } from "../service/items-list.service";
 import { MatTableDataSource } from "@angular/material/table";
 import { MatSort } from "@angular/material/sort";
@@ -21,9 +21,7 @@ export class ItemsListComponent implements OnInit {
     "delete",
   ];
 
-  items: Item[] = [];
-
-  dataSource = new MatTableDataSource(this.items);
+  dataSource = new MatTableDataSource();
 
   @ViewChild("itemTbSort") itemTbSort = new MatSort();
 
@@ -34,24 +32,50 @@ export class ItemsListComponent implements OnInit {
 
   ngOnInit(): void {
     this.itemsListService.getAll().subscribe((response) => {
-      this.items = response;
-      this.dataSource = new MatTableDataSource(this.items);
+      this.dataSource = new MatTableDataSource(response);
       this.itemTbSort.disableClear = true;
       this.dataSource.sort = this.itemTbSort;
     });
   }
 
-  public showInfoDialog(): void {
-    this.dialogService.openAddItemDialog().then((result) => {
-      console.log(result);
+  public addItem(): void {
+    var item = new Item();
+
+    this.dialogService.openAddItemDialog(item).then((result) => {
+      // user wants to add new item
+      if (result) {
+        this.itemsListService.create(new ItemDTO(item)).subscribe((result) => {
+          this.dataSource.data.push(result as Item);
+          this.dataSource._updateChangeSubscription();
+        });
+      }
     });
   }
 
   public editItem(item: Item): void {
-    console.log(item);
+    this.dialogService.openAddItemDialog(item, "Edit item").then((result) => {
+      // user edited an item
+      if (result) {
+        this.itemsListService.update(item.id, new ItemDTO(item)).subscribe();
+      }
+    });
   }
 
   public deleteItem(item: Item): void {
-    console.log(item);
+    this.dialogService.openConfirmDialog().then((result) => {
+      // user want to delete an item
+      if (result) {
+        this.itemsListService.delete(item.id).subscribe(
+          () => {
+            this.dataSource.data = this.dataSource.data.filter(
+              (elem) => (elem as Item).id != item.id
+            );
+          },
+          (error) => {
+            console.error("There was a problem with deleting item: ", error);
+          }
+        );
+      }
+    });
   }
 }
