@@ -41,24 +41,30 @@ export class ItemsListComponent implements OnInit {
   public addItem(): void {
     var item = new Item();
 
-    this.dialogService.openAddItemDialog(item).then((result) => {
-      // user wants to add new item
-      if (result) {
-        this.itemsListService.create(new ItemDTO(item)).subscribe((result) => {
-          this.dataSource.data.push(result as Item);
-          this.dataSource._updateChangeSubscription();
-        });
-      }
-    });
+    this.dialogService
+      .openAddItemDialog(item, "Add item", "Add", "Cancel")
+      .then((result) => {
+        // user wants to add new item
+        if (result) {
+          this.itemsListService
+            .create(new ItemDTO(item))
+            .subscribe((result) => {
+              this.dataSource.data.push(result as Item);
+              this.dataSource._updateChangeSubscription();
+            });
+        }
+      });
   }
 
   public editItem(item: Item): void {
-    this.dialogService.openAddItemDialog(item, "Edit item").then((result) => {
-      // user edited an item
-      if (result) {
-        this.itemsListService.update(item.id, new ItemDTO(item)).subscribe();
-      }
-    });
+    this.dialogService
+      .openAddItemDialog(item, "Edit item", "Confirm", "Cancel")
+      .then((result) => {
+        // user edited an item
+        if (result) {
+          this.itemsListService.update(item.id, new ItemDTO(item)).subscribe();
+        }
+      });
   }
 
   public deleteItem(item: Item): void {
