@@ -1,2 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 @import "assets/css/ew.material.theme";
+
+.green-snackbar {
+    background: #4bb543;
+    color: white;
+    white-space: pre-wrap
+}
+
+.red-snackbar {
+    background: #ce2929;
+    color: white;
+    white-space: pre-wrap
+}

@@ -5,7 +5,7 @@ import { Item } from "src/models/item";
 @Component({
   selector: "ew-add-item-dialog",
   templateUrl: "./add-item-dialog.component.html",
-  styleUrls: ["./add-item-dialog.component.css"],
+  styleUrls: ["./add-item-dialog.component.scss"],
 })
 export class AddItemDialogComponent {
   public title: string;

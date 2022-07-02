@@ -1,0 +1,11 @@
+.header::after {
+    content: '';
+    display: block;
+    height: 2px;
+    width: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #891b55;
+    margin-bottom: 30px;
+}

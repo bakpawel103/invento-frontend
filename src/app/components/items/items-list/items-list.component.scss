@@ -6,7 +6,6 @@ table {
     direction: rtl;
 }
 
-/* If you want the same default margin for the sort icon */
 :host ::ng-deep .mat-header-cell.mat-column-symbol .mat-sort-header-arrow {
     margin-right: 6px;
     margin-left: 0px;
