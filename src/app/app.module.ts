@@ -11,6 +11,7 @@ import { MatTableModule } from "@angular/material/table";
 import { MatSortModule } from "@angular/material/sort";
 import { MatIconModule } from "@angular/material/icon";
 import { MatButtonModule } from "@angular/material/button";
+import { MatMenuModule } from "@angular/material/menu";
 
 @NgModule({
   declarations: [AppComponent, ItemsListComponent],
@@ -21,6 +22,7 @@ import { MatButtonModule } from "@angular/material/button";
     HttpClientModule,
     MatTableModule,
     MatSortModule,
+    MatMenuModule,
     MatIconModule,
     MatButtonModule,
   ],

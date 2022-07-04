@@ -18,8 +18,7 @@ export class ItemsListComponent implements OnInit {
     "description",
     "quantity",
     "price",
-    "edit",
-    "delete",
+    "actions",
   ];
 
   dataSource = new MatTableDataSource();
