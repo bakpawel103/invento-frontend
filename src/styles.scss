@@ -12,3 +12,10 @@
     color: white;
     white-space: pre-wrap
 }
+
+html,
+body {
+    min-height: 100vh;
+    height: auto;
+    margin: 0;
+}

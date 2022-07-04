@@ -10,7 +10,6 @@ declare const EWGlobal: EWGlobal;
 })
 export class AppComponent {
   title = "Warehouse";
-  version = "0.0.1";
 
   constructor() {}
 }

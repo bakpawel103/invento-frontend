@@ -1,31 +1,18 @@
 .ew-header {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   max-width: 100%;
-
-  &::after {
-    content: '';
-    position: absolute;
-    display: block;
-    height: 2px;
-    width: auto;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: #891b55;
-  }
+  background-color: #ff6150;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  box-shadow: 0 7px 16px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
 
   &__title {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-  }
-
-  &__logo {
-    width: 40px;
-    height: 40px;
-    margin-right: 10px;
+    margin-left: 20px;
+    font-size: 20px;
+    color: white;
   }
 }

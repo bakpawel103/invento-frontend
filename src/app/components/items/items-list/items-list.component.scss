@@ -1,5 +1,10 @@
 table {
     width: 100%;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    border-radius: 8px;
+    overflow: hidden !important;
 }
 
 .mat-header-cell.mat-column-position {
@@ -9,4 +14,26 @@ table {
 :host ::ng-deep .mat-header-cell.mat-column-symbol .mat-sort-header-arrow {
     margin-right: 6px;
     margin-left: 0px;
+}
+
+.mat-header-cell {
+    font-weight: bold;
+    font-size: 14px;
+    background-color: #1ac0c6;
+    color: white;
+}
+
+input[type=text],
+input[type=number],
+select {
+    width: 20%;
+    padding: 5px 10px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    box-shadow: 0px 2px 4px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
 }

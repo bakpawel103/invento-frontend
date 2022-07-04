@@ -47,6 +47,11 @@ export class ItemsListComponent implements OnInit {
     });
   }
 
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
   public addItem(): void {
     var item = new Item();
 
