@@ -95,7 +95,7 @@ export class ItemsListComponent implements OnInit {
     this.dialogService
       .openAddItemDialog(tempItem, "Edit item", "Save", "Discard")
       .then((result) => {
-        // user edited an item
+        // user wants to edit an item
         if (result) {
           this.itemsListService
             .update(tempItem.id, new ItemDTO(tempItem))
@@ -128,7 +128,7 @@ export class ItemsListComponent implements OnInit {
         `Do you really want to delete '${item.name}' permanently?`
       )
       .then((result) => {
-        // user want to delete an item
+        // user wants to delete an item
         if (result) {
           this.itemsListService.delete(item.id).subscribe(
             () => {
