@@ -79,7 +79,9 @@ export class ItemsListComponent implements OnInit {
             },
             (err) => {
               this.snackBar.open(
-                Object.values(err.error.errors).join("\n"),
+                Object.entries(err.error.errors).reduce((str, [p, val]) => {
+                  return `${str}${p}: ${val}\n`;
+                }, ""),
                 undefined,
                 this.errorSnackbarConfig
               );
@@ -111,7 +113,9 @@ export class ItemsListComponent implements OnInit {
               },
               (err) => {
                 this.snackBar.open(
-                  Object.values(err.error.errors).join("\n"),
+                  Object.entries(err.error.errors).reduce((str, [p, val]) => {
+                    return `${str}${p}: ${val}\n`;
+                  }, ""),
                   undefined,
                   this.errorSnackbarConfig
                 );
@@ -144,7 +148,9 @@ export class ItemsListComponent implements OnInit {
             },
             (err) => {
               this.snackBar.open(
-                Object.values(err.error.errors).join("\n"),
+                Object.entries(err.error.errors).reduce((str, [p, val]) => {
+                  return `${str}${p}: ${val}\n`;
+                }, ""),
                 undefined,
                 this.errorSnackbarConfig
               );
