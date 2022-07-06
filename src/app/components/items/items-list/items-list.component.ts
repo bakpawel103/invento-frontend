@@ -32,6 +32,13 @@ export class ItemsListComponent implements OnInit {
     panelClass: ["green-snackbar"],
   };
 
+  errorSnackbarConfig: MatSnackBarConfig = {
+    duration: 5000,
+    verticalPosition: "top",
+    horizontalPosition: "end",
+    panelClass: ["red-snackbar"],
+  };
+
   constructor(
     private itemsListService: ItemsListService,
     private dialogService: DialogService,
@@ -74,11 +81,7 @@ export class ItemsListComponent implements OnInit {
               this.snackBar.open(
                 Object.values(err.error.errors).join("\n"),
                 undefined,
-                {
-                  ...this.snackbarConfig,
-                  panelClass: ["red-snackbar"],
-                  duration: 5000,
-                }
+                this.errorSnackbarConfig
               );
             }
           );
@@ -87,14 +90,33 @@ export class ItemsListComponent implements OnInit {
   }
 
   public editItem(item: Item): void {
+    var tempItem = Object.assign({}, item);
+
     this.dialogService
-      .openAddItemDialog(item, "Edit item", "Save", "Discard")
+      .openAddItemDialog(tempItem, "Edit item", "Save", "Discard")
       .then((result) => {
         // user edited an item
         if (result) {
-          this.itemsListService.update(item.id, new ItemDTO(item)).subscribe();
+          this.itemsListService
+            .update(tempItem.id, new ItemDTO(tempItem))
+            .subscribe(
+              () => {
+                item = Object.assign(item, tempItem);
 
-          this.snackBar.open(`Item updated.`, undefined, this.snackbarConfig);
+                this.snackBar.open(
+                  `Item updated.`,
+                  undefined,
+                  this.snackbarConfig
+                );
+              },
+              (err) => {
+                this.snackBar.open(
+                  Object.values(err.error.errors).join("\n"),
+                  undefined,
+                  this.errorSnackbarConfig
+                );
+              }
+            );
         }
       });
   }
@@ -120,8 +142,12 @@ export class ItemsListComponent implements OnInit {
                 this.snackbarConfig
               );
             },
-            (error) => {
-              console.error("There was a problem with deleting item: ", error);
+            (err) => {
+              this.snackBar.open(
+                Object.values(err.error.errors).join("\n"),
+                undefined,
+                this.errorSnackbarConfig
+              );
             }
           );
         }
